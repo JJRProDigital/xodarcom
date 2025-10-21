@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
 import { companyInfo } from '@/lib/data';
@@ -48,13 +49,18 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <motion.div
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-solar-500 to-electric-500 rounded-xl flex items-center justify-center">
-              <Sun className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 relative">
+              <Image
+                src={companyInfo.logo}
+                alt={companyInfo.name}
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-gray-900">

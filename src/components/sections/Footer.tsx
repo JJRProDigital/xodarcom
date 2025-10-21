@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sun, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import { companyInfo } from '@/lib/data';
 
@@ -41,8 +42,13 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-solar-500 to-electric-500 rounded-xl flex items-center justify-center">
-                  <Sun className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 relative">
+                  <Image
+                    src={companyInfo.logo}
+                    alt={companyInfo.name}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">{companyInfo.name}</h3>
