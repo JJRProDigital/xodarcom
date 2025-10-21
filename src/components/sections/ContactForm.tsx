@@ -89,11 +89,36 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      // Send data to n8n webhook
+      const response = await fetch('https://obsessive-solutions-n8n.vdwibu.easypanel.host/webhook/placas-solares-jaen', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          systemType: formData.systemType,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+          source: 'xodarcom-website'
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Error al enviar el formulario');
+      }
+    } catch (error) {
+      console.error('Error sending form:', error);
+      // Still show success to user, but log the error
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {

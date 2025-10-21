@@ -108,7 +108,7 @@ export const faqs: FAQ[] = [
   {
     id: 'cost',
     question: '¿Cuánto cuesta instalar paneles solares?',
-    answer: 'Desde €3.500.000 según sistema. Ofrecemos financiamiento y beneficios tributarios. Solicita cotización personalizada gratuita.'
+    answer: 'Desde €4.200 según sistema. Ofrecemos financiamiento y beneficios tributarios. Solicita cotización personalizada gratuita.'
   },
   {
     id: 'savings',
@@ -128,12 +128,12 @@ export const faqs: FAQ[] = [
   {
     id: 'installation-time',
     question: '¿Cuánto dura instalación?',
-    answer: '2-7 días según sistema. Trámites legales: 15-20 días.'
+    answer: '2-7 días según sistema.'
   },
   {
     id: 'warranty',
     question: '¿Qué garantías tienen?',
-    answer: 'Paneles: 25 años. Inversor: 10 años. Baterías: 10 años. Instalación: 5 años.'
+    answer: 'La que otorga el fabricante.'
   },
   {
     id: 'roof-suitable',
@@ -143,7 +143,7 @@ export const faqs: FAQ[] = [
   {
     id: 'maintenance',
     question: '¿Requiere mantenimiento?',
-    answer: 'Mínimo mantenimiento. Limpieza ocasional y revisión anual incluida en garantía.'
+    answer: 'Mínimo mantenimiento. Limpieza ocasional.'
   }
 ];
 
