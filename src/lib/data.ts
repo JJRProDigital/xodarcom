@@ -187,5 +187,5 @@ export const companyInfo = {
   name: 'Xodarcom Sol Inf SL',
   email: 'info@xodarcom.com',
   phone: '650836635',
-  logo: '/img/logo-xodarcom.png'
+  logo: '/logo-xodarcom.png'
 };
