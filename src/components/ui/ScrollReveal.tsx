@@ -41,8 +41,7 @@ export default function ScrollReveal({
       opacity: 1,
       transition: {
         duration,
-        delay,
-        ease: "easeOut"
+        delay
       }
     }
   };
