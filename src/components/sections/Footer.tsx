@@ -42,7 +42,7 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center mb-6">
-                <div className="w-20 h-20 relative">
+                <div className="w-32 h-32 relative">
                   <Image
                     src={companyInfo.logo}
                     alt={companyInfo.name}

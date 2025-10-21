@@ -54,7 +54,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-16 h-16 relative">
+            <div className="w-24 h-24 relative">
               <Image
                 src={companyInfo.logo}
                 alt={companyInfo.name}
