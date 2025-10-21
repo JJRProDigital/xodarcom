@@ -81,15 +81,17 @@ export const successCases: SuccessCase[] = [
     system: 'Sistema 5.5 kWp',
     reduction: 'Antes no tenía luz, ahora sí',
     annualSavings: '+€1800',
-    location: 'Mata-Behid'
+    location: 'Mata-Behid',
+    testimonial: 'Antes no teníamos luz en el chalet y ahora tenemos energía solar. El sistema de 5.5 kWp nos genera un ahorro de +€1800 mensuales.'
   },
   {
     id: 'oficina-comercial',
     title: 'Oficina Comercial',
-    system: 'Sistema 8.4 kWp',
-    reduction: 'Beneficio tributario aplicado',
-    annualSavings: '€2.400.000',
-    location: 'Centro Comercial'
+    system: 'Sistema 6.6 kWp',
+    reduction: 'Reducción de cuenta al casi 50%',
+    annualSavings: '+€1500',
+    location: 'Centro Comercial',
+    testimonial: 'La instalación solar en nuestra oficina comercial ha sido un éxito total. Hemos reducido significativamente nuestros costos operativos y el beneficio tributario nos ha ayudado mucho.'
   },
   {
     id: 'casa-castanetas',
@@ -97,7 +99,8 @@ export const successCases: SuccessCase[] = [
     system: 'Punto de carga eléctrico para coches',
     reduction: 'Autonomía energética 100%',
     annualSavings: 'Sin dependencia de cortes ni alzas de tarifa',
-    location: 'Piscina cubierta Torredelcampo'
+    location: 'Piscina cubierta Torredelcampo',
+    testimonial: 'El punto de carga eléctrico ha sido una revolución. Ahora tenemos autonomía energética completa y no dependemos de cortes de luz ni aumentos de tarifa.'
   }
 ];
 

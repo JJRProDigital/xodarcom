@@ -121,7 +121,7 @@ export default function SuccessCases() {
                     {/* Testimonial */}
                     <div className="bg-gray-50 rounded-2xl p-4">
                       <p className="text-sm text-gray-600 italic">
-                        &ldquo;Antes no teníamos luz en el chalet y ahora tenemos energía solar. El sistema de 5.5 kWp nos genera un ahorro de +€1800 mensuales.&rdquo;
+                        &ldquo;{caseStudy.testimonial}&rdquo;
                       </p>
                     </div>
                   </div>

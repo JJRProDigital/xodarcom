@@ -26,6 +26,7 @@ export interface SuccessCase {
   reduction: string;
   annualSavings: string;
   location: string;
+  testimonial: string;
 }
 
 export interface FAQ {
