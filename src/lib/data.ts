@@ -78,9 +78,9 @@ export const successCases: SuccessCase[] = [
   {
     id: 'chalet-mata',
     title: 'Chalet en Mata-Behid',
-    system: 'Sistema 5.2 kWp',
-    reduction: 'de €180.000 a €25.000',
-    annualSavings: '€1.860.000',
+    system: 'Sistema 5.5 kWp',
+    reduction: 'Antes no tenía luz, ahora sí',
+    annualSavings: '+€1800',
     location: 'Mata-Behid'
   },
   {
@@ -93,11 +93,11 @@ export const successCases: SuccessCase[] = [
   },
   {
     id: 'casa-castanetas',
-    title: 'Casa Las Castañetas',
-    system: 'Sistema Premium 10 kWp + Baterías',
+    title: 'Punto de carga eléctrico para coches',
+    system: 'Punto de carga eléctrico para coches',
     reduction: 'Autonomía energética 100%',
     annualSavings: 'Sin dependencia de cortes ni alzas de tarifa',
-    location: 'Las Castañetas'
+    location: 'Piscina cubierta Torredelcampo'
   }
 ];
 

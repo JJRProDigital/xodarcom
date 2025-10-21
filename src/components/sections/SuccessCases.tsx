@@ -1,16 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { TrendingUp, DollarSign, Home, Building } from 'lucide-react';
+import { TrendingUp, DollarSign, Home, Building, Car } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
-import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import { successCases } from '@/lib/data';
 
 const caseIcons = {
   'chalet-mata': Home,
   'oficina-comercial': Building,
-  'casa-castanetas': Home
+  'casa-castanetas': Car
 };
 
 const caseColors = {
@@ -122,7 +121,7 @@ export default function SuccessCases() {
                     {/* Testimonial */}
                     <div className="bg-gray-50 rounded-2xl p-4">
                       <p className="text-sm text-gray-600 italic">
-                        &ldquo;La mejor inversión que hemos hecho. En solo 6 meses ya hemos recuperado una parte significativa de la inversión.&rdquo;
+                        &ldquo;Antes no teníamos luz en el chalet y ahora tenemos energía solar. El sistema de 5.5 kWp nos genera un ahorro de +€1800 mensuales.&rdquo;
                       </p>
                     </div>
                   </div>
@@ -146,66 +145,6 @@ export default function SuccessCases() {
           })}
         </div>
 
-        {/* Stats Section */}
-        <motion.div
-          className="mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="bg-gradient-to-r from-solar-500 via-electric-500 to-energy-500 rounded-3xl p-12 text-white">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <div className="text-4xl font-bold mb-2">
-                  <AnimatedCounter end={500} suffix="+" />
-                </div>
-                <div className="text-sm opacity-90">Instalaciones Completadas</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                <div className="text-4xl font-bold mb-2">
-                  <AnimatedCounter end={95} suffix="%" />
-                </div>
-                <div className="text-sm opacity-90">Ahorro Promedio</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <div className="text-4xl font-bold mb-2">
-                  <AnimatedCounter end={25} />
-                </div>
-                <div className="text-sm opacity-90">Años de Garantía</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-              >
-                <div className="text-4xl font-bold mb-2">
-                  <AnimatedCounter end={100} suffix="%" />
-                </div>
-                <div className="text-sm opacity-90">Satisfacción</div>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Bottom CTA */}
         <motion.div

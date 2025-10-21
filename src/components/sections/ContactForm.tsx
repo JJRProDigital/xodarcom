@@ -147,10 +147,10 @@ export default function ContactForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Solicita tu <span className="text-electric-300">Presupuesto Gratuito</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-solar-300">Solicita tu</span> <span className="text-electric-400">Presupuesto Gratuito</span>
             </h2>
-            <p className="text-xl text-solar-100 max-w-3xl mx-auto">
+            <p className="text-xl text-solar-300 max-w-3xl mx-auto">
               Sin compromiso. Evaluación técnica gratuita. Respuesta en 24 horas.
             </p>
           </motion.div>
