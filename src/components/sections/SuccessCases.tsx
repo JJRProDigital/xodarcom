@@ -122,7 +122,7 @@ export default function SuccessCases() {
                     {/* Testimonial */}
                     <div className="bg-gray-50 rounded-2xl p-4">
                       <p className="text-sm text-gray-600 italic">
-                        "La mejor inversión que hemos hecho. En solo 6 meses ya hemos recuperado una parte significativa de la inversión."
+                        &ldquo;La mejor inversión que hemos hecho. En solo 6 meses ya hemos recuperado una parte significativa de la inversión.&rdquo;
                       </p>
                     </div>
                   </div>
