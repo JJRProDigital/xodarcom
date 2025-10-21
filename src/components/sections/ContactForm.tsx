@@ -14,6 +14,7 @@ interface FormData {
   phone: string;
   systemType: string;
   message: string;
+  privacyAccepted: boolean;
 }
 
 interface FormErrors {
@@ -21,6 +22,7 @@ interface FormErrors {
   email?: string;
   phone?: string;
   systemType?: string;
+  privacyAccepted?: string;
 }
 
 export default function ContactForm() {
@@ -29,7 +31,8 @@ export default function ContactForm() {
     email: '',
     phone: '',
     systemType: '',
-    message: ''
+    message: '',
+    privacyAccepted: false
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -44,8 +47,13 @@ export default function ContactForm() {
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    
+    setFormData(prev => ({ 
+      ...prev, 
+      [name]: type === 'checkbox' ? checked : value 
+    }));
     
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
@@ -76,6 +84,10 @@ export default function ContactForm() {
       newErrors.systemType = 'Por favor selecciona un tipo de sistema';
     }
 
+    if (!formData.privacyAccepted) {
+      newErrors.privacyAccepted = 'Debes aceptar la política de privacidad';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -90,26 +102,38 @@ export default function ContactForm() {
     setIsSubmitting(true);
     
     try {
+      // Prepare data to send
+      const dataToSend = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        systemType: formData.systemType,
+        message: formData.message,
+        timestamp: new Date().toISOString(),
+        source: 'xodarcom-website'
+      };
+      
+      console.log('Sending data to webhook:', dataToSend);
+      
       // Send data to n8n webhook
       const response = await fetch('https://obsessive-solutions-n8n.vdwibu.easypanel.host/webhook/placas-solares-jaen', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          systemType: formData.systemType,
-          message: formData.message,
-          timestamp: new Date().toISOString(),
-          source: 'xodarcom-website'
-        }),
+        body: JSON.stringify(dataToSend),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      
       if (response.ok) {
+        const responseData = await response.text();
+        console.log('Response data:', responseData);
         setIsSubmitted(true);
       } else {
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
         throw new Error('Error al enviar el formulario');
       }
     } catch (error) {
@@ -331,6 +355,37 @@ export default function ContactForm() {
                       placeholder="Cuéntanos más sobre tu proyecto..."
                     />
                   </div>
+
+                  {/* Privacy Policy Checkbox */}
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      id="privacyAccepted"
+                      name="privacyAccepted"
+                      checked={formData.privacyAccepted}
+                      onChange={handleInputChange}
+                      className={`mt-1 w-5 h-5 text-solar-500 border-2 rounded focus:ring-solar-500 focus:ring-2 ${
+                        errors.privacyAccepted 
+                          ? 'border-red-500' 
+                          : 'border-gray-300'
+                      }`}
+                    />
+                    <label htmlFor="privacyAccepted" className="text-sm text-gray-600 leading-relaxed">
+                      Acepto la{' '}
+                      <a 
+                        href="https://xodarcom.com/politica-de-privacidad/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-solar-500 hover:text-solar-600 underline"
+                      >
+                        política de privacidad
+                      </a>
+                      {' '}y el tratamiento de mis datos personales para recibir información sobre productos y servicios.
+                    </label>
+                  </div>
+                  {errors.privacyAccepted && (
+                    <p className="text-red-500 text-sm mt-1">{errors.privacyAccepted}</p>
+                  )}
 
                   {/* Submit Button */}
                   <Button

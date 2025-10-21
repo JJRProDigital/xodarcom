@@ -5,6 +5,7 @@ import { TrendingUp, DollarSign, Home, Building, Car } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
 import { successCases } from '@/lib/data';
+import { scrollToSection } from '@/lib/utils';
 
 const caseIcons = {
   'chalet-mata': Home,
@@ -162,6 +163,7 @@ export default function SuccessCases() {
               Únete a las cientos de familias que ya disfrutan de energía solar limpia y económica
             </p>
             <motion.button
+              onClick={() => scrollToSection('contact')}
               className="bg-gradient-to-r from-solar-500 to-electric-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

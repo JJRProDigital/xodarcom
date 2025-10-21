@@ -6,6 +6,7 @@ import { ChevronDown, Search } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
 import { faqs } from '@/lib/data';
+import { scrollToSection } from '@/lib/utils';
 
 export default function FAQ() {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
@@ -163,6 +164,7 @@ export default function FAQ() {
               Nuestros expertos están listos para resolver todas tus dudas
             </p>
             <motion.button
+              onClick={() => scrollToSection('contact')}
               className="bg-white text-solar-500 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-colors duration-200 shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

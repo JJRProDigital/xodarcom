@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Clock, Users, Shield, Zap } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
+import { scrollToSection } from '@/lib/utils';
 
 const processFeatures = [
   {
@@ -114,7 +115,10 @@ export default function ProcessVideo() {
                 <p className="text-solar-100 mb-4">
                   Solicita tu evaluación gratuita y descubre cuánto puedes ahorrar
                 </p>
-                <button className="bg-white text-solar-500 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200">
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="bg-white text-solar-500 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200"
+                >
                   Evaluación Gratuita
                 </button>
               </div>

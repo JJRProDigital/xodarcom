@@ -20,10 +20,10 @@ const footerLinks = {
     { name: 'Contacto', href: '#contact' }
   ],
   legal: [
-    { name: 'Política de Privacidad', href: '#' },
+    { name: 'Política de Privacidad', href: 'https://xodarcom.com/politica-de-privacidad/', external: true },
     { name: 'Términos y Condiciones', href: '#' },
-    { name: 'Cookies', href: '#' },
-    { name: 'Aviso Legal', href: '#' }
+    { name: 'Cookies', href: 'https://xodarcom.com/politicas-de-cookies/', external: true },
+    { name: 'Aviso Legal', href: 'https://xodarcom.com/aviso-legal/', external: true }
   ]
 };
 
@@ -162,6 +162,7 @@ export default function Footer() {
                     <a
                       href={link.href}
                       className="text-gray-400 hover:text-white transition-colors duration-200"
+                      {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
                     >
                       {link.name}
                     </a>
@@ -182,15 +183,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2024 {companyInfo.name}. Todos los derechos reservados.
-            </div>
-            
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span>Certificaciones SEC</span>
-              <span>•</span>
-              <span>Garantía 25 años</span>
-              <span>•</span>
-              <span>Instalaciones certificadas</span>
+              © {new Date().getFullYear()} {companyInfo.name}. Todos los derechos reservados.
             </div>
           </div>
         </motion.div>

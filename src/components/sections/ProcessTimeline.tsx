@@ -5,6 +5,7 @@ import { Search, Palette, FileText, Wrench, Play } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
 import { processSteps } from '@/lib/data';
+import { scrollToSection } from '@/lib/utils';
 
 const stepIcons = {
   search: Search,
@@ -165,6 +166,7 @@ export default function ProcessTimeline() {
               El primer paso es completamente gratuito y sin compromiso
             </p>
             <motion.button
+              onClick={() => scrollToSection('contact')}
               className="bg-white text-solar-500 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-colors duration-200 shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
