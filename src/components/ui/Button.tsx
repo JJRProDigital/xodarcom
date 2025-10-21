@@ -1,7 +1,7 @@
 'use client';
 
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag' | 'onDragStart' | 'onDragEnd'> {
@@ -22,7 +22,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ...props 
   }, ref) => {
     // Separar props que pueden causar conflictos con Framer Motion
-    const { onDrag, onDragStart, onDragEnd, ...htmlProps } = props;
+    const { ...htmlProps } = props;
     const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
     
     const variants = {
