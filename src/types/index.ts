@@ -2,7 +2,7 @@
 export interface SolarSystem {
   id: string;
   name: string;
-  panels: number;
+  panels: string;
   generation: string;
   ideal: string;
   installation: string;
