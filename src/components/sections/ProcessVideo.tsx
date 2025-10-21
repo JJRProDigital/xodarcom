@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, Clock, Users, Shield, Zap } from 'lucide-react';
+import { Clock, Users, Shield, Zap } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
 
@@ -53,70 +53,14 @@ export default function ProcessVideo() {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Video Section */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="relative bg-gradient-to-br from-solar-100 to-electric-100 rounded-3xl shadow-2xl overflow-hidden">
-              {/* Video Container */}
-              <div className="relative aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/zAKd3PQDbBk?rel=0&modestbranding=1"
-                  title="Proceso de Instalación Solar"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              
-              {/* Play Button Overlay */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center bg-black/20"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div
-                  className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-xl"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Play className="w-8 h-8 text-solar-500 ml-1" />
-                </motion.div>
-              </motion.div>
-            </div>
-
-            {/* Video Stats */}
-            <motion.div
-              className="mt-8 grid grid-cols-2 gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                <div className="text-3xl font-bold text-solar-500 mb-2">100%</div>
-                <div className="text-sm text-gray-600">Satisfacción Garantizada</div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-                <div className="text-3xl font-bold text-electric-500 mb-2">500+</div>
-                <div className="text-sm text-gray-600">Instalaciones Completadas</div>
-              </div>
-            </motion.div>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Content */}
           <motion.div
             className="space-y-8"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
           >
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">

@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Sun, Zap, Shield } from 'lucide-react';
+import { ArrowRight, Sun, Zap } from 'lucide-react';
+import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
 import FloatingParticles from '@/components/ui/FloatingParticles';
@@ -9,8 +10,7 @@ import { scrollToSection } from '@/lib/utils';
 
 const features = [
   { icon: Sun, text: 'Energía 100% Limpia' },
-  { icon: Zap, text: 'Ahorro Garantizado' },
-  { icon: Shield, text: 'Garantía 25 Años' }
+  { icon: Zap, text: 'Ahorro Garantizado' }
 ];
 
 export default function Hero() {
@@ -108,87 +108,73 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
-            <motion.div
-              className="flex items-center space-x-6 text-sm text-gray-600"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-energy-500 rounded-full"></div>
-                <span>Instalaciones certificadas</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-solar-500 rounded-full"></div>
-                <span>Garantía extendida</span>
-              </div>
-            </motion.div>
           </motion.div>
 
-          {/* Visual */}
+          {/* Visual - Montaje de Imágenes */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Main Visual Container */}
-            <div className="relative w-full h-96 lg:h-[500px] bg-gradient-to-br from-solar-100 to-electric-100 rounded-3xl shadow-2xl overflow-hidden">
-              {/* Solar Panel Mockup */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  className="w-64 h-64 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl"
-                  animate={{ 
-                    rotateY: [0, 5, 0],
-                    scale: [1, 1.02, 1]
-                  }}
-                  transition={{ 
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  {/* Solar Panel Grid */}
-                  <div className="grid grid-cols-4 gap-2 p-4 h-full">
-                    {Array.from({ length: 16 }).map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="bg-gradient-to-br from-blue-400 to-blue-600 rounded"
-                        animate={{
-                          opacity: [0.3, 0.8, 0.3]
-                        }}
-                        transition={{
-                          duration: 2,
-                          delay: i * 0.1,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Floating Elements */}
+            {/* Container Principal */}
+            <div className="relative w-full h-96 lg:h-[500px]">
+              {/* Imagen de Cargador de Coches - Fondo (Esquina Inferior Derecha) */}
               <motion.div
-                className="absolute top-8 right-8 w-16 h-16 bg-solar-500 rounded-full shadow-lg"
+                className="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-2xl overflow-hidden"
+                initial={{ scale: 0.8, opacity: 0, x: 20, y: 20 }}
+                animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                <Image
+                  src="/cargador coches.jpg"
+                  alt="Cargador de coches eléctricos"
+                  fill
+                  className="object-cover"
+                />
+                {/* Overlay sutil */}
+                <div className="absolute inset-0 bg-gradient-to-tl from-black/10 to-transparent"></div>
+              </motion.div>
+
+              {/* Imagen de Placas Solares - Superpuesta (Esquina Superior Izquierda) */}
+              <motion.div
+                className="absolute top-0 left-0 w-3/5 h-3/5 rounded-2xl overflow-hidden z-10"
+                initial={{ scale: 0.8, opacity: 0, x: -20, y: -20 }}
+                animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.8 }}
+              >
+                <Image
+                  src="/placas solares.jpeg"
+                  alt="Placas solares instaladas"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Overlay sutil */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent"></div>
+              </motion.div>
+
+              {/* Elementos decorativos */}
+              <motion.div
+                className="absolute top-4 left-4 w-16 h-16 bg-solar-500/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center"
                 animate={{
-                  y: [0, -10, 0],
-                  scale: [1, 1.1, 1]
+                  y: [0, -5, 0],
+                  scale: [1, 1.05, 1]
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-              />
-              
+              >
+                <Sun className="w-8 h-8 text-white" />
+              </motion.div>
+
               <motion.div
-                className="absolute bottom-8 left-8 w-12 h-12 bg-electric-500 rounded-full shadow-lg"
+                className="absolute bottom-4 right-4 w-12 h-12 bg-electric-500/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center"
                 animate={{
-                  y: [0, 10, 0],
-                  scale: [1, 1.1, 1]
+                  y: [0, 5, 0],
+                  scale: [1, 1.05, 1]
                 }}
                 transition={{
                   duration: 2.5,
@@ -196,33 +182,17 @@ export default function Hero() {
                   ease: "easeInOut",
                   delay: 1
                 }}
-              />
-
-              {/* Energy Flow Lines */}
-              <motion.div
-                className="absolute inset-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
               >
-                <svg className="w-full h-full">
-                  <motion.path
-                    d="M50,200 Q200,100 350,200"
-                    stroke="url(#gradient)"
-                    strokeWidth="3"
-                    fill="none"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 2, delay: 1.5 }}
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#FF6B35" />
-                      <stop offset="100%" stopColor="#004E89" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <Zap className="w-6 h-6 text-white" />
               </motion.div>
+
+              {/* Línea diagonal de conexión entre las imágenes */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 w-1 h-24 bg-gradient-to-b from-solar-500 to-electric-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 rotate-45"
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ duration: 1, delay: 1.5 }}
+              />
             </div>
 
             {/* Stats Cards */}
@@ -238,17 +208,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            <motion.div
-              className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1.4 }}
-            >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-electric-500">25</div>
-                <div className="text-sm text-gray-600">Años Garantía</div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </Container>
