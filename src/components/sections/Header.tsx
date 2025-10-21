@@ -49,24 +49,18 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <motion.div
-            className="flex items-center space-x-3"
+            className="flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-10 h-10 relative">
+            <div className="w-16 h-16 relative">
               <Image
                 src={companyInfo.logo}
                 alt={companyInfo.name}
                 fill
                 className="object-contain"
               />
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-gray-900">
-                {companyInfo.name}
-              </h1>
-              <p className="text-sm text-gray-600">Energía Solar</p>
             </div>
           </motion.div>
 

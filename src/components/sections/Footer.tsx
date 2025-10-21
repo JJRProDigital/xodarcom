@@ -41,18 +41,14 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 relative">
+              <div className="flex items-center mb-6">
+                <div className="w-20 h-20 relative">
                   <Image
                     src={companyInfo.logo}
                     alt={companyInfo.name}
                     fill
                     className="object-contain"
                   />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">{companyInfo.name}</h3>
-                  <p className="text-sm text-gray-400">Energía Solar</p>
                 </div>
               </div>
               
